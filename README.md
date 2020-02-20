@@ -74,6 +74,8 @@ State: S (sleeping)
 **Hint**: You may need to pipe the output of one command into another.
 
 ```bash
+ps -e | more
+ps 1
 ```
 
 ---
