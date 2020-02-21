@@ -36,6 +36,8 @@ Errors, access events, and system logs in Linux are kept in a pseudo-filesystem 
 ```bash
 
 tail -f -n 5 /var/log/syslog
+or
+tail -f /var/log/syslog
 ```
 
 ---
