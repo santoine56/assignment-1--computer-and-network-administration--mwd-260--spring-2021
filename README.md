@@ -46,6 +46,7 @@ path/to/file
 ```
 
 ```bash
+/etc/skel/.bashrc
 ```
 
 ---
