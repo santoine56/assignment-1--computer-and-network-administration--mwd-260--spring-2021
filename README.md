@@ -44,7 +44,8 @@ Default bash profile files are sourced from multiple directories in the Linux fi
 
 ```
 path/to/file
-/home/jacquelyn--argondizza/.bashrc
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+:/home/jacquelyn--argondizza/.bashrc
 ```
 
 ```bash
