@@ -91,6 +91,7 @@ State: S (sleeping)
 **Hint**: You may need to pipe the output of one command into another.
 
 ```bash
+ps -eo state -q 1 --no-headers
 ```
 
 ---
