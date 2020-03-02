@@ -59,7 +59,7 @@ State: S (sleeping)
 
 **Hint**: You may need to pipe the output of one command into another.
 
-```bash
+```ps -o state 1
 ```
 
 ---
@@ -81,5 +81,5 @@ The `du` command will output disk, or file space, usage. Write a variant of the 
 4.9M    total
 ```
 
-```bash
+```du -d 1 -h
 ```
