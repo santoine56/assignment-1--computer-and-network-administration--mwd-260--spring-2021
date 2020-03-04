@@ -102,4 +102,5 @@ The `du` command will output disk, or file space, usage. Write a variant of the 
 ```
 
 ```bash
+du -sc *
 ```
