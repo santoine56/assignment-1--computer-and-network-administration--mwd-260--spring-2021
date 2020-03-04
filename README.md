@@ -34,6 +34,7 @@ Issue a pull request back into the original repo, the one from which your forked
 Errors, access events, and system logs in Linux are kept in a pseudo-filesystem that is retained in memory, not non-volatile storage, and is designed for system admins. Write a command that monitors and updates in real time system changes, such as USB connections. (**25pts**)
 
 ```bash
+tail -f /var/log/syslog
 ```
 
 ---
@@ -42,10 +43,26 @@ Errors, access events, and system logs in Linux are kept in a pseudo-filesystem 
 Default bash profile files are sourced from multiple directories in the Linux filesystem. Locate the file that has the starter aliases and add an alias to the `rm` and `mv` commands that force interaction: `-i`. Then, using your own name, create a non-admin user and use the following algorithm: `first-name--last-name`. (**Note the double dashes**.) Log in to the system as this new user, launch a Terminal, then run the command `alias`. Look for your new aliases. Once you’ve verified that it worked, include the absolute path to the file, including the file itself below. Then copy 11 lines from that file: The 5 lines that precede the line where you made the change, the line where you made the change, and the 5 lines that follow the line where you made the change. (**25pts**)
 
 ```
-path/to/file
+~/etc/skel/.bashrc
+
 ```
 
 ```bash
+
+alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+alias mv='mv -i'
+alias rm='rm -i'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
 ```
 
 ---
@@ -60,6 +77,7 @@ State: S (sleeping)
 **Hint**: You may need to pipe the output of one command into another.
 
 ```bash
+cat /proc/1/status | grep "State"
 ```
 
 ---
@@ -82,4 +100,5 @@ The `du` command will output disk, or file space, usage. Write a variant of the 
 ```
 
 ```bash
+du -hc*
 ```
