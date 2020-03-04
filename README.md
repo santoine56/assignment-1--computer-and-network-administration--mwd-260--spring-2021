@@ -34,6 +34,7 @@ Issue a pull request back into the original repo, the one from which your forked
 Errors, access events, and system logs in Linux are kept in a pseudo-filesystem that is retained in memory, not non-volatile storage, and is designed for system admins. Write a command that monitors and updates in real time system changes, such as USB connections. (**25pts**)
 
 ```bash
+sudo tail -f /var/log/syslog
 ```
 
 ---
@@ -43,9 +44,22 @@ Default bash profile files are sourced from multiple directories in the Linux fi
 
 ```
 path/to/file
+/home/etc/bashrc
 ```
 
 ```bash
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias rm='rm -i'
+alias mv='mv -i'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 ```
 
 ---
@@ -60,6 +74,7 @@ State: S (sleeping)
 **Hint**: You may need to pipe the output of one command into another.
 
 ```bash
+top | ps aux | grep pid1
 ```
 
 ---
@@ -82,4 +97,5 @@ The `du` command will output disk, or file space, usage. Write a variant of the 
 ```
 
 ```bash
+du -d 1 -h ~
 ```
