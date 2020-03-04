@@ -43,10 +43,23 @@ tail -f /var/log/syslog
 Default bash profile files are sourced from multiple directories in the Linux filesystem. Locate the file that has the starter aliases and add an alias to the `rm` and `mv` commands that force interaction: `-i`. Then, using your own name, create a non-admin user and use the following algorithm: `first-name--last-name`. (**Note the double dashes**.) Log in to the system as this new user, launch a Terminal, then run the command `alias`. Look for your new aliases. Once you’ve verified that it worked, include the absolute path to the file, including the file itself below. Then copy 12 lines from that file: The 5 lines that precede the line where you made the change, the line where you made the change, and the 5 lines that follow the line where you made the changes. (**25pts**)
 
 ```
-path/to/file
+/etc/skel/
 ```
 
 ```bash
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias rm='rm -i' # Added by Roy Vanegas on 3 March 2020
+    alias mv='mv -i' # Added by Roy Vanegas on 3 March 2020
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 ```
 
 ---
