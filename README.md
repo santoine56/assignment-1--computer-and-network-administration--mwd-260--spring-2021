@@ -34,6 +34,7 @@ Issue a pull request back into the original repo, the one from which your forked
 Errors, access events, and system logs in Linux are kept in a pseudo-filesystem that is retained in memory, not non-volatile storage, and is designed for system admins. Write a command that monitors and updates in real time system changes, such as USB connections. (**25pts**)
 
 ```bash
+tail -f /var/log/syslog
 ```
 
 ---
@@ -42,10 +43,40 @@ Errors, access events, and system logs in Linux are kept in a pseudo-filesystem 
 Default bash profile files are sourced from multiple directories in the Linux filesystem. Locate the file that has the starter aliases and add an alias to the `rm` and `mv` commands that force interaction: `-i`. Then, using your own name, create a non-admin user and use the following algorithm: `first-name--last-name`. (**Note the double dashes**.) Log in to the system as this new user, launch a Terminal, then run the command `alias`. Look for your new aliases. Once you’ve verified that it worked, include the absolute path to the file, including the file itself below. Then copy 11 lines from that file: The 5 lines that precede the line where you made the change, the line where you made the change, and the 5 lines that follow the line where you made the change. (**25pts**)
 
 ```
-path/to/file
+/etc/skel/.bashrc
 ```
 
 ```bash
+Lines from that file (with change):
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:car#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:q>et=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias rm='rm -i'
+alias mv='mv -i'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+```
+
+```bash
+Logged in as new user, launch Terminal, run the command alias:
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias ls='ls --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
 ```
 
 ---
@@ -60,6 +91,7 @@ State: S (sleeping)
 **Hint**: You may need to pipe the output of one command into another.
 
 ```bash
+ps -eo state -q 1 --no-headers
 ```
 
 ---
@@ -82,4 +114,5 @@ The `du` command will output disk, or file space, usage. Write a variant of the 
 ```
 
 ```bash
+du -c -h -d 0 $(ls)
 ```
