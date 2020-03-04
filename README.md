@@ -74,6 +74,12 @@ State: S (sleeping)
 **Hint**: You may need to pipe the output of one command into another.
 
 ```bash
+more /proc/1/status | grep State
+```
+
+or
+```bash
+more /proc/1/status | grep -i state
 ```
 
 ---
